@@ -62,6 +62,16 @@ footer{background:#000;border-top:1px solid rgba(201,168,76,0.3);padding:40px 32
 .contact-link:hover{color:var(--gold);}
 .footer-bottom{text-align:center;font-size:12px;color:rgba(180,160,120,0.4);padding-top:16px;}
 @media(max-width:600px){header{padding:12px 16px;}.hero{padding:50px 16px 40px;}.gallery-section{padding:0 12px 40px;}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px;}.gallery-card img{height:180px;}.footer-icons{gap:20px;}}
+#whatsapp-float{position:fixed;bottom:24px;left:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.4);cursor:pointer;text-decoration:none;transition:transform 0.2s;}
+#whatsapp-float:hover{transform:scale(1.1);}
+#accessibility-btn{position:fixed;bottom:90px;left:24px;z-index:999;width:44px;height:44px;border-radius:50%;background:#1565C0;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.4);}
+#accessibility-panel{display:none;position:fixed;bottom:144px;left:24px;z-index:999;background:#1a1a1a;border:1px solid #c9a84c;border-radius:12px;padding:16px;width:210px;direction:rtl;}
+#accessibility-panel.open{display:block;}
+#accessibility-panel h3{color:#c9a84c;font-size:14px;margin-bottom:12px;text-align:center;}
+.acc-btn{display:block;width:100%;padding:9px;margin-bottom:8px;background:#2a2a2a;border:1px solid rgba(201,168,76,0.3);border-radius:6px;color:#d4c5a0;cursor:pointer;font-size:13px;text-align:right;font-family:'Heebo',sans-serif;}
+.acc-btn:hover{background:#333;border-color:#c9a84c;}
+body.large-text{font-size:120%;}
+body.high-contrast{filter:contrast(1.5);}
 </style>
 </head>
 <body>
@@ -258,6 +268,24 @@ footer{background:#000;border-top:1px solid rgba(201,168,76,0.3);padding:40px 32
     <a href="mailto:oreljewishart@gmail.com?subject=בקשת הסרה מרשימת התפוצה" style="display:inline-block;background:#c9a84c;color:#000;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">✉️ שלחו בקשת הסרה</a>
     <p style="color:#d4c5a0;font-size:13px;margin-top:16px;line-height:1.6;">נטפל בבקשתך תוך 3 ימי עסקים. בלי ספאם, בלי שאלות.</p>
   </div>
+</div>
+
+<!-- כפתור WhatsApp צף -->
+<a id="whatsapp-float" href="https://wa.me/972504521584?text=שלום, אני מעוניין במבצע לוח תפילה דגם אגם 70/100" target="_blank">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.05 1.474 5.756L0 24l6.445-1.449A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.376l-.36-.214-3.724.977.993-3.62-.235-.372A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+</a>
+
+<!-- כפתור נגישות -->
+<button id="accessibility-btn" onclick="document.getElementById('accessibility-panel').classList.toggle('open')" title="אפשרויות נגישות">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 110 4 2 2 0 010-4zm8 4l-5 1-1 4 3 1-1 5-3-1-1 5H9l-1-5-3 1-1-5 3-1L6 7 1 6l.5-2L12 6l10.5-2L23 6z"/></svg>
+</button>
+
+<div id="accessibility-panel">
+  <h3>♿ אפשרויות נגישות</h3>
+  <button class="acc-btn" onclick="document.body.classList.toggle('large-text')">🔠 הגדלת טקסט</button>
+  <button class="acc-btn" onclick="document.body.classList.toggle('high-contrast')">🌓 ניגודיות גבוהה</button>
+  <button class="acc-btn" onclick="document.body.classList.remove('large-text','high-contrast')">↺ איפוס הגדרות</button>
+  <a href="#" onclick="document.getElementById('modal-accessibility').style.display='flex';document.getElementById('accessibility-panel').classList.remove('open');return false;" style="display:block;text-align:center;color:rgba(201,168,76,0.7);font-size:12px;margin-top:8px;text-decoration:underline;">להצהרת הנגישות המלאה</a>
 </div>
 
 </body>
