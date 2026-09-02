@@ -9,7 +9,7 @@
 :root{--gold:#c9a84c;--gold-light:#e8c97a;--dark:#0d0d0d;--dark2:#161616;--dark3:#1e1e1e;--white:#f5f0e8;--orange:#e07b2a;--text:#d4c5a0;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--dark);color:var(--white);font-family:'Heebo',sans-serif;direction:rtl;}
-header{background:linear-gradient(180deg,#000,#0d0d0d);border-bottom:1px solid var(--gold);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;flex-direction:row-reverse;}
+header{background:linear-gradient(180deg,#000,#0d0d0d);border-bottom:1px solid var(--gold);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .logo-name{font-size:26px;font-weight:900;color:var(--gold);}
 .logo-sub{font-size:11px;color:var(--text);font-weight:300;}
 .header-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:6px;font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;}
@@ -38,10 +38,10 @@ header{background:linear-gradient(180deg,#000,#0d0d0d);border-bottom:1px solid v
 .gallery-section{padding:0 24px 60px;}
 .gallery-category{margin-bottom:56px;}
 .category-title{font-size:20px;font-weight:700;color:var(--gold);border-right:3px solid var(--gold);padding-right:14px;margin-bottom:20px;margin-right:8px;}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
 .gallery-card{background:var(--dark2);border:1px solid rgba(201,168,76,0.2);border-radius:10px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;}
 .gallery-card:hover{border-color:var(--gold);transform:translateY(-3px);}
-.gallery-card img{width:100%;height:320px;object-fit:cover;display:block;object-position:center;}
+.gallery-card img{width:100%;height:280px;object-fit:cover;display:block;}
 .specs-section{background:var(--dark2);border-top:1px solid rgba(201,168,76,0.2);border-bottom:1px solid rgba(201,168,76,0.2);padding:60px 32px;}
 .specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:900px;margin:0 auto;}
 .spec-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--dark3);border-radius:10px;border:1px solid rgba(201,168,76,0.15);}
@@ -61,8 +61,7 @@ footer{background:#000;border-top:1px solid rgba(201,168,76,0.3);padding:40px 32
 .contact-link{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-size:14px;}
 .contact-link:hover{color:var(--gold);}
 .footer-bottom{text-align:center;font-size:12px;color:rgba(180,160,120,0.4);padding-top:16px;}
-@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){header{padding:12px 16px;}.hero{padding:50px 16px 40px;}.gallery-section{padding:0 12px 40px;}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px;}.gallery-card img{height:200px;}.footer-icons{gap:20px;}}
+@media(max-width:600px){header{padding:12px 16px;}.hero{padding:50px 16px 40px;}.gallery-section{padding:0 12px 40px;}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px;}.gallery-card img{height:180px;}.footer-icons{gap:20px;}}
 </style>
 </head>
 <body>
@@ -76,7 +75,6 @@ footer{background:#000;border-top:1px solid rgba(201,168,76,0.3);padding:40px 32
 </header>
 
 <section class="hero">
-  <div class="hero-badge">⭐ מבצע מיוחד – עד גמר המלאי</div>
   <div class="hero-badge">⭐ מבצע מיוחד – עד גמר המלאי</div>
   <div class="ornament">❧ ✦ ❧</div>
   <h1>לוחות תפילה<br>דגם "אגם"</h1>
@@ -206,8 +204,61 @@ footer{background:#000;border-top:1px solid rgba(201,168,76,0.3);padding:40px 32
     <a href="tel:0504521584" class="contact-link">📱 050-4521584</a>
     <a href="https://wa.me/972504521584" class="contact-link">💬 WhatsApp: 050-452-1584</a>
   </div>
-  <div class="footer-bottom">אור-אל קישוט בתי כנסת בע"מ | כל הזכויות שמורות</div>
+  <div class="footer-bottom">
+    אור-אל קישוט בתי כנסת בע"מ | כל הזכויות שמורות
+    <div style="margin-top:10px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+      <a href="#" onclick="document.getElementById('modal-accessibility').style.display='flex';return false;" style="color:rgba(180,160,120,0.6);text-decoration:underline;font-size:12px;">הצהרת נגישות</a>
+      <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color:rgba(180,160,120,0.6);text-decoration:underline;font-size:12px;">מדיניות פרטיות</a>
+      <a href="#" onclick="document.getElementById('modal-unsubscribe').style.display='flex';return false;" style="color:rgba(180,160,120,0.6);text-decoration:underline;font-size:12px;">הסרה מרשימת התפוצה</a>
+    </div>
+  </div>
 </footer>
+
+<!-- MODAL: נגישות -->
+<div id="modal-accessibility" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#1a1a1a;border:1px solid #c9a84c;border-radius:12px;max-width:600px;width:100%;max-height:80vh;overflow-y:auto;padding:32px;direction:rtl;position:relative;">
+    <button onclick="document.getElementById('modal-accessibility').style.display='none'" style="position:absolute;top:16px;left:16px;background:none;border:none;color:#c9a84c;font-size:22px;cursor:pointer;">✕</button>
+    <h2 style="color:#c9a84c;margin-bottom:20px;font-size:22px;">הצהרת נגישות</h2>
+    <p style="color:#d4c5a0;font-size:12px;margin-bottom:16px;">עודכן לאחרונה: ספטמבר 2026</p>
+    <p style="color:#d4c5a0;line-height:1.7;margin-bottom:14px;">אור-אל קישוט בתי כנסת בע"מ רואה חשיבות רבה במתן שירות שוויוני ונגיש לכלל הציבור, לרבות אנשים עם מוגבלות, ופועלת להנגשת דף זה בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998, ולתקן הישראלי ת"י 5568 ברמת AA.</p>
+    <h3 style="color:#c9a84c;margin:16px 0 8px;font-size:16px;">התאמות הנגישות בדף</h3>
+    <ul style="color:#d4c5a0;line-height:1.8;padding-right:20px;">
+      <li>טקסט חלופי לכל התמונות עבור קוראי מסך</li>
+      <li>ניווט מלא באמצעות מקלדת</li>
+      <li>מבנה כותרות תקין ותגיות ARIA</li>
+      <li>יחסי ניגודיות צבעים בהתאם לתקן</li>
+    </ul>
+    <h3 style="color:#c9a84c;margin:16px 0 8px;font-size:16px;">רכז נגישות</h3>
+    <p style="color:#d4c5a0;line-height:1.7;">אור-אל קישוט בתי כנסת בע"מ · טלפון: <a href="tel:036822166" style="color:#c9a84c;">03-6822166</a> · דוא"ל: <a href="mailto:oreljewishart@gmail.com" style="color:#c9a84c;">oreljewishart@gmail.com</a></p>
+    <p style="color:#d4c5a0;line-height:1.7;margin-top:12px;">נתקלתם בבעיה? פנו אלינו ונטפל בפנייה בהקדם.</p>
+  </div>
+</div>
+
+<!-- MODAL: פרטיות -->
+<div id="modal-privacy" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#1a1a1a;border:1px solid #c9a84c;border-radius:12px;max-width:600px;width:100%;max-height:80vh;overflow-y:auto;padding:32px;direction:rtl;position:relative;">
+    <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:16px;left:16px;background:none;border:none;color:#c9a84c;font-size:22px;cursor:pointer;">✕</button>
+    <h2 style="color:#c9a84c;margin-bottom:20px;font-size:22px;">מדיניות פרטיות</h2>
+    <p style="color:#d4c5a0;font-size:12px;margin-bottom:16px;">עודכן לאחרונה: ספטמבר 2026 · בהתאם לחוק הגנת הפרטיות, התשמ"א-1981</p>
+    <h3 style="color:#c9a84c;margin:16px 0 8px;font-size:16px;">מי אנחנו</h3>
+    <p style="color:#d4c5a0;line-height:1.7;margin-bottom:14px;">אור-אל קישוט בתי כנסת בע"מ, טל: 03-6822166, oreljewishart@gmail.com</p>
+    <h3 style="color:#c9a84c;margin:16px 0 8px;font-size:16px;">איזה מידע נאסף ולמה</h3>
+    <p style="color:#d4c5a0;line-height:1.7;margin-bottom:14px;">בפנייה אלינו נאסף שמך ומספר הטלפון, לצורך חזרה אליך בלבד לתיאום ייעוץ והזמנה. המידע לא יועבר לצדדים שלישיים, לא יימכר ולא ישמש לדיוור פרסומי ללא הסכמתך.</p>
+    <h3 style="color:#c9a84c;margin:16px 0 8px;font-size:16px;">הזכויות שלך</h3>
+    <p style="color:#d4c5a0;line-height:1.7;">עומדת לך הזכות לעיין במידע שנאסף עליך, לבקש את תיקונו או מחיקתו. לכל בקשה: <a href="tel:036822166" style="color:#c9a84c;">03-6822166</a> או <a href="mailto:oreljewishart@gmail.com" style="color:#c9a84c;">oreljewishart@gmail.com</a></p>
+  </div>
+</div>
+
+<!-- MODAL: הסרה -->
+<div id="modal-unsubscribe" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#1a1a1a;border:1px solid #c9a84c;border-radius:12px;max-width:500px;width:100%;padding:32px;direction:rtl;position:relative;">
+    <button onclick="document.getElementById('modal-unsubscribe').style.display='none'" style="position:absolute;top:16px;left:16px;background:none;border:none;color:#c9a84c;font-size:22px;cursor:pointer;">✕</button>
+    <h2 style="color:#c9a84c;margin-bottom:16px;font-size:22px;">הסרה מרשימת התפוצה</h2>
+    <p style="color:#d4c5a0;line-height:1.7;margin-bottom:20px;">לבקשת הסרה מרשימת התפוצה שלנו, שלחו מייל עם הבקשה לכתובת:</p>
+    <a href="mailto:oreljewishart@gmail.com?subject=בקשת הסרה מרשימת התפוצה" style="display:inline-block;background:#c9a84c;color:#000;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">✉️ שלחו בקשת הסרה</a>
+    <p style="color:#d4c5a0;font-size:13px;margin-top:16px;line-height:1.6;">נטפל בבקשתך תוך 3 ימי עסקים. בלי ספאם, בלי שאלות.</p>
+  </div>
+</div>
 
 </body>
 </html>
